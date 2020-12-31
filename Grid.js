@@ -1,4 +1,5 @@
 function initialize_maze(){
+    reset_maze();
     for(let i = 0; i < row; i++){
         grid.push([]);
         for(let j = 0; j < col; j++){
@@ -7,15 +8,31 @@ function initialize_maze(){
     }
 }
 function render_maze(){
-    for(let i = 0; i < row; i++){
-        for(let j = 0; j < col; j++){
-            grid[i][j].generate();
+    let a = 0;
+    while(a < grid.length){
+        let b = 0;
+        while(grid[a].length > b){
+            grid[a][b].generate();
+            b++
         }
+        a++
     }
-    for(let i = 0; i < row ;i++){
-        for(let j = 0; j < col; j++){
-            grid[i][j].drawWall();
+    a=0;
+    while(a < grid.length){
+        let b = 0;
+        while(grid[a].length > b){
+            grid[a][b].drawWall();
+            b++
         }
+        a++
+    }
+}
+function reset_maze(){
+    while(grid.length > 0){
+        while(grid[grid.length-1].length > 0){
+            grid[grid.length-1].pop()
+        }
+        grid.pop()
     }
 }
 function free_maze_stack(){
@@ -68,5 +85,4 @@ function generate_maze(){
         maze_stack.push([y,x]);
         cell_count ++;
     }
-
 }

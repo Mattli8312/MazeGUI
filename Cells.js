@@ -9,8 +9,8 @@ class Cells{
     }
     generate(){
         if(!this.visited)
-            ctx.fillStyle = 'red';
-        else ctx.fillStyle = 'gold';
+            ctx.fillStyle = 'black';
+        else ctx.fillStyle = 'blue';
         ctx.beginPath();
         ctx.rect(this.j,this.i,this.size,this.size);
         ctx.closePath();
