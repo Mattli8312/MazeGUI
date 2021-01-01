@@ -5,12 +5,15 @@ class Cells{
         this.size = size
         this.id = id;
         this.visited = false;
+        this.color = "black";
         this.connected = [false,false,false,false]; //North, south, east, west
     }
     generate(){
-        if(!this.visited)
-            ctx.fillStyle = 'black';
-        else ctx.fillStyle = 'blue';
+        if(this.visited && generate)
+            this.color = "white"
+        if(this.visited && solve)
+            this.color = "red"
+        ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.rect(this.j,this.i,this.size,this.size);
         ctx.closePath();
@@ -19,7 +22,7 @@ class Cells{
     drawWall(){
         ctx.lineWidth = wall_width;
         //check north
-        ctx.strokeStyle = "brown"
+        ctx.strokeStyle = "gold"
         if(!this.connected[0]){
             ctx.beginPath();
             ctx.moveTo(this.j - ctx.lineWidth/2, this.i)

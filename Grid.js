@@ -39,8 +39,8 @@ function free_maze_stack(){
     while(maze_stack.length > 0)
         maze_stack.pop()
 }
+//Generating the maze
 let maze_stack = [];
-    //push starting cell onto grid;
 let x = 0,y = 0;
 let cell_count = 1;
 maze_stack.push([y,x]);
@@ -84,5 +84,12 @@ function generate_maze(){
         x = directions[a][1];
         maze_stack.push([y,x]);
         cell_count ++;
+    }
+}
+function unvisit_cells(){
+    for(let i = 0; i < row; i++){
+        for(let j = 0; j < col; j++){
+            grid[i][j].visited = false;
+        }
     }
 }

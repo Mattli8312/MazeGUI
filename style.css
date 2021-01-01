@@ -15,6 +15,7 @@
     padding-top: 1em;
     padding-bottom: 1rem;
     align-items: center;
+    background: silver;
 }
 #grid{
     position: absolute;
@@ -24,5 +25,39 @@
     height: 85%;
 }
 .button{
-    border-radius: 25%;
+    border-radius: 50%;
+}
+.dimensions{
+    position: relative;
+    z-index: 5;
+    transition: all 0.5 ease-in-out;
+}
+.dimensions button{
+    background: none;
+    border: none;
+    transition: all 0.5s ease;
+}
+.dimensions button:focus + ul{
+    transform: translateY(10px);
+    display: block;
+    position: absolute;
+    background: white;
+    border: none;
+}
+.dimensions ul{
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 5%;
+    transform: translateY(20px);
+    transition: all 2s ease;
+}
+.dimensions:hover{
+    color: blue;
+}
+.input{
+    color: black;
+    padding: 0.5em;
+    font-size: 80%;
+    list-style: none;
 }
