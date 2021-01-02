@@ -11,8 +11,6 @@ class Cells{
     generate(){
         if(this.visited && generate)
             this.color = "white"
-        if(this.visited && solve)
-            this.color = "red"
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.rect(this.j,this.i,this.size,this.size);

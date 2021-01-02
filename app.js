@@ -5,7 +5,7 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 //Dimensions for the board
-let row = 30;
+let row = 20;
 let col = 20;
 //Initialize start and end coordinates
 let startRow = 0;
@@ -21,6 +21,7 @@ let complete = false
 
 let board_x = (canvas.width-(cell_size*col))/2
 let grid = [];
+
 initialize_maze()
 function render(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -28,7 +29,7 @@ function render(){
     if(generate && cell_count <= row * col)
         generate_maze();
     if(solve && !complete){
-        Depth_First_Search(startCol, startRow);
+        Breadth_First_Search();
     }
     if(complete){
         final_path()
